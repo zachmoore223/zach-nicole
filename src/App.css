@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+.body {
+  background-color: rgb(255, 255, 255);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cityButtons {
+  /* center horizontally */
+  margin-left: auto;
+  margin-right: auto;
+  /* center vertically */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.cityButton {
+  background-color: #E5E5E5;
+  border: none;
+  color: black;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.cityButton.active {
+  background-color: rgb(148, 175, 159);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.cityButton {
+  background-color: #E5E5E5;
+  border: none;
+  color: black;
+  padding: 6px 8px; /* reduced padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px; /* reduced font size */
+  margin: 2px; /* reduced margin */
+  cursor: pointer;
+  border-radius: 12px;
+  margin-bottom: -80px;
 }
+.activeCity {
+  font-size: large;
+  margin-bottom: -35px;
+  /* center vertically */
+  display: flex;
+  justify-content: center;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.iconAndTemp {
+  font-size: x-large;
+  /* center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0 0px; /* adjusted margin */
+  margin-bottom: -30px;
+}
+.chanceOfRain {
+  font-size: small;
+  /* center vertically */
+  display: flex;
+  justify-content: center;
+}
+.weatherApp {
 }
