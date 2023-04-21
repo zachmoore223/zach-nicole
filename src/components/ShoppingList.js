@@ -79,7 +79,9 @@ function ShoppingList() {
           onChange={(event) => setNewItemName(event.target.value)}
         />
       </label>
-      <br />
+      </div>
+      
+      <div className="add-any-item">
       <label>
         Price:
         <input
@@ -88,9 +90,9 @@ function ShoppingList() {
           onChange={(event) => setNewItemPrice(event.target.value)}
         />
       </label>
-      <br />
-      <button onClick={handleAddItem}>Add</button>
+      <br /><br />
       </div>
+      <div className='addButton'><button className="addButton" onClick={handleAddItem}>Add</button></div>
     </div>
   );
 }

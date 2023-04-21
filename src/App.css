@@ -110,3 +110,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
