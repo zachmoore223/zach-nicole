@@ -73,5 +73,14 @@
   margin-bottom: -25px;
   justify-content: center;
 }
+
+.currentTime {
+  font-size: medium;
+  /* center vertically */
+  display: flex;
+  margin-bottom: -25px;
+  justify-content: center;
+  margin-top: 20px;
+}
 .weatherApp {
 }

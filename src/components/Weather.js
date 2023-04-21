@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon.js";
+import Time from "./Time.js";
 
-export default function Weather2() {
+export default function Weather() {
   const [activeCity, setActiveCity] = useState("Columbus");
   const [latitude, setLatitude] = useState("39.96");
   const [longitude, setLongitude] = useState("-83.0");
@@ -9,7 +10,15 @@ export default function Weather2() {
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
+  const currentHour = new Date().getHours();
+  const currentMinute = new Date().getMinutes();
+  //displays the minutes in the day with two digits instead of 1
+  const currentMinutesTwoDigits = new Date().getMinutes().toString().padStart(2, '0');
+  const hour12 = currentHour > 12 ? currentHour - 12 : currentHour;
 
+  //API goes by every 7 minutes so need to get the current array index by divided current minutes in the day by 7
+  const endOfArray = Math.trunc((currentHour * 60 + currentMinute) / 7);
+  console.log(endOfArray);
   useEffect(() => {
     function changeCity() {
       fetch(
@@ -17,28 +26,36 @@ export default function Weather2() {
           latitude +
           "&longitude=" +
           longitude +
-          "&hourly=temperature_2m,precipitation_probability,rain,showers,snowfall,cloudcover&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=ms&precipitation_unit=inch&forecast_days=3&timezone=auto"
+          "&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,evapotranspiration,et0_fao_evapotranspiration,vapor_pressure_deficit,windspeed_10m,windspeed_80m,windspeed_120m,windspeed_180m,winddirection_10m,winddirection_80m,winddirection_120m,winddirection_180m,windgusts_10m,temperature_80m,temperature_120m,temperature_180m,soil_temperature_0cm,soil_temperature_6cm,soil_temperature_18cm,soil_temperature_54cm,soil_moisture_0_1cm,soil_moisture_1_3cm,soil_moisture_3_9cm,soil_moisture_9_27cm,soil_moisture_27_81cm&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=ms&precipitation_unit=inch&timezone=America%2FNew_York"
       )
         .then((res) => res.json())
         .then((response) => {
           console.log(response);
+
           setTemperature(response.current_weather.temperature);
+          console.log("Temp: " + response.current_weather.temperature);
+
           setChanceOfRain(
-            response.hourly.precipitation_probability[
-              response.hourly.precipitation_probability.length - 1
-            ]
-          );
+            response.hourly.precipitation_probability[endOfArray]);
+            console.log("Chance of Rain: " + response.hourly.precipitation_probability[endOfArray]);
+
           setCloudCoverage(
-            response.hourly.cloudcover[response.hourly.cloudcover.length - 1]
+            response.hourly.cloudcover[endOfArray]
           );
+          console.log("Cloud Coverage: " + response.hourly.cloudcover[endOfArray]);
+
           setWindSpeed(
             response.current_weather.windspeed
           );
+          console.log("Wind Speed: " + response.current_weather.windspeed);
         });
     }
     changeCity();
   }, [activeCity]);
+
+
   return (
+    //WEATHER
     <div>
       <div className="cityButtons">
         <button
@@ -81,7 +98,7 @@ export default function Weather2() {
       </div>
       <br /> <br />
       <div className="activeCity">
-        <p> {activeCity} </p>
+        <p> {activeCity} &nbsp;&nbsp;&nbsp; </p> <Time />
       </div>
       <div className="iconAndTemp">
         <WeatherIcon cloudCoverage={cloudCoverage} /> &nbsp;&nbsp;
@@ -91,8 +108,11 @@ export default function Weather2() {
         <p>Wind Speed: <strong> {windSpeed} mph</strong></p>
       </div>
       <div className="chanceOfRain">
-        <p>Chance of Rain:<strong>{chanceOfRain}%</strong></p>
+        <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
       </div>
+          
     </div>
+
+
   );
 }
