@@ -11,7 +11,7 @@ export default function Time() {
   
   
   return (
-      <p className="currentTime"> {hour12}:{currentMinutesTwoDigits}{ampm} </p>
+      <p className="currentTime"> {hour12}:{currentMinutesTwoDigits} {ampm} </p>
 
   );
 }
