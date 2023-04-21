@@ -65,5 +65,13 @@
   display: flex;
   justify-content: center;
 }
+
+.windspeed {
+  font-size: small;
+  /* center vertically */
+  display: flex;
+  margin-bottom: -25px;
+  justify-content: center;
+}
 .weatherApp {
 }

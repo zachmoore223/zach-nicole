@@ -8,6 +8,8 @@ export default function Weather2() {
   const [temperature, setTemperature] = useState("");
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
+  const [windSpeed, setWindSpeed] = useState("");
+
   useEffect(() => {
     function changeCity() {
       fetch(
@@ -28,6 +30,9 @@ export default function Weather2() {
           );
           setCloudCoverage(
             response.hourly.cloudcover[response.hourly.cloudcover.length - 1]
+          );
+          setWindSpeed(
+            response.current_weather.windspeed
           );
         });
     }
@@ -82,8 +87,11 @@ export default function Weather2() {
         <WeatherIcon cloudCoverage={cloudCoverage} /> &nbsp;&nbsp;
         <p>{temperature} &#8457;</p>
       </div>
+      <div className="windspeed">
+        <p>Wind Speed: <strong> {windSpeed} mph</strong></p>
+      </div>
       <div className="chanceOfRain">
-        <p>{chanceOfRain}% chance of rain today.</p>
+        <p>Chance of Rain:<strong>{chanceOfRain}%</strong></p>
       </div>
     </div>
   );
