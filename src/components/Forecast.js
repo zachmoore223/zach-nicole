@@ -31,9 +31,7 @@ export default function Weather2() {
           setCloudCoverage(
             response.hourly.cloudcover[response.hourly.cloudcover.length - 1]
           );
-          setWindSpeed(
-            response.current_weather.windspeed
-          );
+
         });
     }
     changeCity();

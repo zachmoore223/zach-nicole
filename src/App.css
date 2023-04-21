@@ -69,5 +69,44 @@
   justify-content: center;
   margin-top: 20px;
 }
-.weatherApp {
+
+.shoppingListHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -10px;
+}
+
+
+.shopping-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.frequentlyBoughtHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.frequently-bought {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addAnyHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.add-any-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
