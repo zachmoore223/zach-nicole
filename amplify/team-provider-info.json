@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-zachnicole-dev-180949-authRole",
+      "UnauthRoleArn": "arn:aws:iam::106006992404:role/amplify-zachnicole-dev-180949-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::106006992404:role/amplify-zachnicole-dev-180949-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-zachnicole-dev-180949-deployment",
+      "UnauthRoleName": "amplify-zachnicole-dev-180949-unauthRole",
+      "StackName": "amplify-zachnicole-dev-180949",
+      "StackId": "arn:aws:cloudformation:us-east-1:106006992404:stack/amplify-zachnicole-dev-180949/3d51e390-e091-11ed-aa61-0ec9605a0fb7",
+      "AmplifyAppId": "d1is1s8ci2gpg9"
+    }
+  },
+  "shoppingt": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-zachnicole-shoppingt-103455-authRole",
+      "UnauthRoleArn": "arn:aws:iam::106006992404:role/amplify-zachnicole-shoppingt-103455-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::106006992404:role/amplify-zachnicole-shoppingt-103455-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-zachnicole-shoppingt-103455-deployment",
+      "UnauthRoleName": "amplify-zachnicole-shoppingt-103455-unauthRole",
+      "StackName": "amplify-zachnicole-shoppingt-103455",
+      "StackId": "arn:aws:cloudformation:us-east-1:106006992404:stack/amplify-zachnicole-shoppingt-103455/83d0b880-e43f-11ed-982f-0a3337c595a5",
+      "AmplifyAppId": "d1is1s8ci2gpg9"
+    }
+  }
+}
