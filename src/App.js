@@ -1,6 +1,6 @@
 import './App.css';
 import Weather from './components/Weather.js'
-import ShoppingList from './components/ShoppingList';
+import ShoppingList from './components/ShoppingList'
 
 function App() {
   return (
