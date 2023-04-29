@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon.js";
 
-export default function Weather2() {
+export default function Forecast() {
   const [activeCity, setActiveCity] = useState("Columbus");
   const [latitude, setLatitude] = useState("39.96");
   const [longitude, setLongitude] = useState("-83.0");
@@ -40,14 +40,15 @@ export default function Weather2() {
 
   if(showForecast==true){
   return (
-    
   <div className="forecast">
     <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
+    <p> forecast here</p>
   </div>
   );} else {
+    return (
     <div className="forecast">
     <button className="forecastButton" onClick={()=> {setShowForecast(true)}}>Show Forecast</button>
-  </div>
-  }
+    </div>
+ ); }
 
 }
