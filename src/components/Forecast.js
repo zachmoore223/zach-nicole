@@ -8,7 +8,7 @@ export default function Weather2() {
   const [temperature, setTemperature] = useState("");
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
-  const [windSpeed, setWindSpeed] = userState("");
+  const [windSpeed, setWindSpeed] = useState("");
   
   useEffect(() => {
     function changeCity() {

@@ -134,3 +134,28 @@
   border-color: grey;
 }
 
+.forecast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecastButton {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.forecastButton:hover {
+  color: blue;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon.js";
 import Time from "./Time.js";
+import Forcase from "./Forecast.js";
 
 export default function Weather() {
   const [activeCity, setActiveCity] = useState("Columbus");
@@ -12,6 +13,7 @@ export default function Weather() {
   const [windSpeed, setWindSpeed] = useState("");
   const currentHour = new Date().getHours();
   const currentMinute = new Date().getMinutes();
+  const [showForecast, setShowForecast] = useState(false);
   //displays the minutes in the day with two digits instead of 1
   const currentMinutesTwoDigits = new Date().getMinutes().toString().padStart(2, '0');
   const hour12 = currentHour > 12 ? currentHour - 12 : currentHour;
@@ -110,7 +112,9 @@ export default function Weather() {
       <div className="chanceOfRain">
         <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
       </div>
-          
+      <div className="forecast">
+        <button className="forecastButton">Show Forecast</button>
+      </div>
     </div>
 
 
