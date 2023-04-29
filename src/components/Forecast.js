@@ -9,7 +9,8 @@ export default function Weather2() {
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
-  
+  const [showForecast, setShowForecast] = useState(false);
+
   useEffect(() => {
     function changeCity() {
       fetch(
@@ -36,8 +37,17 @@ export default function Weather2() {
     }
     changeCity();
   }, [activeCity]);
+
+  if(showForecast==true){
   return (
-    <div>
-    </div>
-  );
+    
+  <div className="forecast">
+    <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
+  </div>
+  );} else {
+    <div className="forecast">
+    <button className="forecastButton" onClick={()=> {setShowForecast(true)}}>Show Forecast</button>
+  </div>
+  }
+
 }

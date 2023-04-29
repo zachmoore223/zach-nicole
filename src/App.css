@@ -141,6 +141,7 @@
 }
 
 .forecastButton {
+  font-size: medium;
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
