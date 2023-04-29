@@ -111,9 +111,26 @@
   align-items: center;
 }
 
+.addDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .addButton {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: green;
+  color: white;
+  font-weight: 400;
+  border-color: grey;
+}
+
+.xButton {
+  background-color: red;
+  color: white;
+  font-weight: 400;
+  border-color: grey;
 }
 

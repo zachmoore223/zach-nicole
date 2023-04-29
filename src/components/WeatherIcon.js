@@ -5,11 +5,11 @@ import cloudy from "../icons/cloudy.png";
 
 export default function WeatherIcon({ cloudCoverage }) {
   //SUNNY
-  if (cloudCoverage <= 20) {
+  if (cloudCoverage <= 25) {
     return <img src={sunny} alt="Sunny" width="50" height="50" />;
   } 
   //PARTLY CLOUDY
-  else if (cloudCoverage > 20 && cloudCoverage < 50) {
+  else if (cloudCoverage > 25 && cloudCoverage < 50) {
     return (
       <img src={partlyCloudy} alt="Partly Cloudy" width="50" height="50" />
     );

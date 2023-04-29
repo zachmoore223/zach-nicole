@@ -44,7 +44,7 @@ function ShoppingList() {
       <ul>
         {items.map((item, index) => (
           <li key={index}>
-            <button onClick={() => handleRemoveItem(index)}> X </button>
+            <button className="xButton" onClick={() => handleRemoveItem(index)}> X </button>
             &nbsp;&nbsp;
             {item.name} - ${item.price.toFixed(2)} 
             
@@ -92,7 +92,7 @@ function ShoppingList() {
       </label>
       <br /><br />
       </div>
-      <div className='addButton'><button className="addButton" onClick={handleAddItem}>Add</button></div>
+      <div className='addDiv'><button className="addButton" onClick={handleAddItem}>Add</button></div>
     </div>
   );
 }
