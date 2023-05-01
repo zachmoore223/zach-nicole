@@ -40,9 +40,13 @@ export default function Forecast() {
 
   if(showForecast==true){
   return (
-  <div className="forecast">
+  <div>
+    <div className="forecast">
     <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
-    <p> forecast here</p>
+    </div>
+    <div className="forecastSection">
+      <p> forecast here</p>
+    </div>
   </div>
   );} else {
     return (
