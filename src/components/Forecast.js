@@ -44,8 +44,20 @@ export default function Forecast() {
     <div className="forecast">
     <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
     </div>
-    <div className="forecastSection">
-      <p> forecast here</p>
+    <div>
+      <div className="activeCity">
+         <p> Day 1 </p>
+        </div>
+        <div className="iconAndTemp">
+          <WeatherIcon cloudCoverage={cloudCoverage} /> &nbsp;&nbsp;
+          <p>{temperature} &#8457;</p>
+        </div>
+        <div className="windspeed">
+          <p>Wind Speed: <strong> {windSpeed} mph</strong></p>
+        </div>
+        <div className="chanceOfRain">
+          <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
+        </div>
     </div>
   </div>
   );} else {
