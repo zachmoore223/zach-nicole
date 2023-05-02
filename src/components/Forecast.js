@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon.js";
 
-export default function Forecast() {
+export default function Forecast({latitude, longitude}) {
   const [activeCity, setActiveCity] = useState("Columbus");
-  const [latitude, setLatitude] = useState("39.96");
-  const [longitude, setLongitude] = useState("-83.0");
   const [temperature, setTemperature] = useState("");
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");

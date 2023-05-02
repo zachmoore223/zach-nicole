@@ -5,8 +5,8 @@ import Forecast from "./Forecast.js";
 
 export default function Weather() {
   const [activeCity, setActiveCity] = useState("Columbus");
-  const [latitude, setLatitude] = useState("39.96");
-  const [longitude, setLongitude] = useState("-83.0");
+  const [latitude, setLatitude] = useState(39.96);
+  const [longitude, setLongitude] = useState(-83.0);
   const [temperature, setTemperature] = useState("");
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
@@ -64,8 +64,8 @@ export default function Weather() {
           id="Columbus"
           onClick={() => {
             setActiveCity("Columbus");
-            setLatitude("39.96");
-            setLongitude("-83.0");
+            setLatitude(39.96);
+            setLongitude(-83.0);
           }}
         >
           Columbus
@@ -77,8 +77,8 @@ export default function Weather() {
           id="Shelby"
           onClick={() => {
             setActiveCity("Shelby");
-            setLatitude("40.88");
-            setLongitude("-82.66");
+            setLatitude(40.8);
+            setLongitude(-82.66);
           }}
         >
           Shelby
@@ -90,8 +90,8 @@ export default function Weather() {
           id="Tampa"
           onClick={() => {
             setActiveCity("Tampa");
-            setLatitude("27.95");
-            setLongitude("-82.46");
+            setLatitude(27.95);
+            setLongitude(-82.46);
           }}
         >
           Tampa
@@ -111,7 +111,7 @@ export default function Weather() {
       <div className="chanceOfRain">
         <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
       </div>
-          <Forecast />
+          <Forecast latitude={latitude} longitude={longitude} />
     </div>
 
 
