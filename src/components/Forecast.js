@@ -3,7 +3,7 @@ import WeatherIcon from "./WeatherIcon.js";
 
 export default function Forecast({latitude, longitude}) {
   const [activeCity, setActiveCity] = useState("Columbus");
-  const [temperature, setTemperature] = useState("");
+  const [temperatureHigh, setTemperatureHigh] = useState("");
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
@@ -20,13 +20,17 @@ export default function Forecast({latitude, longitude}) {
       )
         .then((res) => res.json())
         .then((response) => {
+          console.log("FORECAST:");
           console.log(response);
-          setTemperature(response.current_weather.temperature);
+
+          setTemperatureHigh(response.daily.apparent_temperature_max[0]);
+          console.log("Forecast:" + response.daily.apparent_temperature_max[0]);
+
           setChanceOfRain(
-            response.hourly.precipitation_probability[
-              response.hourly.precipitation_probability.length - 1
-            ]
+            response.daily.precipitation_probability_max[0]
           );
+          console.log("Forecast" + response.daily.precipitation_probability_max[0]);
+          
           setCloudCoverage(
             response.hourly.cloudcover[response.hourly.cloudcover.length - 1]
           );
@@ -48,10 +52,7 @@ export default function Forecast({latitude, longitude}) {
         </div>
         <div className="iconAndTemp">
           <WeatherIcon cloudCoverage={cloudCoverage} /> &nbsp;&nbsp;
-          <p>{temperature} &#8457;</p>
-        </div>
-        <div className="windspeed">
-          <p>Wind Speed: <strong> {windSpeed} mph</strong></p>
+          <p>{temperatureHigh} &#8457;</p>
         </div>
         <div className="chanceOfRain">
           <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
