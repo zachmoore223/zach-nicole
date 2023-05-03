@@ -4,6 +4,7 @@ import WeatherIcon from "./WeatherIcon.js";
 export default function Forecast({latitude, longitude}) {
   const [activeCity, setActiveCity] = useState("Columbus");
   const [temperatureHigh, setTemperatureHigh] = useState("");
+  const [temperatureLow, setTemperatureLow] = useState("");
   const [chanceOfRain, setChanceOfRain] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
@@ -16,24 +17,26 @@ export default function Forecast({latitude, longitude}) {
           latitude +
           "&longitude=" +
           longitude +
-          "&hourly=temperature_2m,apparent_temperature,precipitation,rain,showers,snowfall,weathercode,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility&daily=weathercode,temperature_2m_max,temperature_2m_min,rain_sum,showers_sum,snowfall_sum,precipitation_probability_max&temperature_unit=fahrenheit&windspeed_unit=ms&precipitation_unit=inch&timezone=auto"
+          "&hourly=temperature_2m,relativehumidity_2m,dewpoint_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,evapotranspiration,et0_fao_evapotranspiration,vapor_pressure_deficit,windspeed_10m,windspeed_80m,windspeed_120m,windspeed_180m,winddirection_10m,winddirection_80m,winddirection_120m,winddirection_180m,windgusts_10m,temperature_80m,temperature_120m,temperature_180m,soil_temperature_0cm,soil_temperature_6cm,soil_temperature_18cm,soil_temperature_54cm,soil_moisture_0_1cm,soil_moisture_1_3cm,soil_moisture_3_9cm,soil_moisture_9_27cm,soil_moisture_27_81cm&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=ms&precipitation_unit=inch&timezone=America%2FNew_York"
       )
         .then((res) => res.json())
         .then((response) => {
-          console.log("FORECAST:");
           console.log(response);
 
           setTemperatureHigh(response.daily.apparent_temperature_max[0]);
-          console.log("Forecast:" + response.daily.apparent_temperature_max[0]);
+          console.log("Forecase High Temp: " + response.daily.apparent_temperature_max[0]);
+
+          setTemperatureLow(response.daily.apparent_temperature_max[0]);
+          console.log("Forecase Low Temp: " + response.daily.apparent_temperature_min[0]);
 
           setChanceOfRain(
-            response.daily.precipitation_probability_max[0]
-          );
-          console.log("Forecast" + response.daily.precipitation_probability_max[0]);
-          
+            response.hourly.precipitation_probability[0]);
+            console.log("Forecast Precip: " + response.hourly.precipitation_probability[0]);
+
           setCloudCoverage(
-            response.hourly.cloudcover[response.hourly.cloudcover.length - 1]
+            response.hourly.cloudcover[0]
           );
+          console.log("Forecast: " + response.hourly.cloudcover[0]);
 
         });
     }
