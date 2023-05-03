@@ -23,15 +23,15 @@ export default function Forecast({latitude, longitude}) {
         .then((response) => {
           console.log(response);
 
-          setTemperatureHigh(response.daily.apparent_temperature_max[0]);
-          console.log("Forecase High Temp: " + response.daily.apparent_temperature_max[0]);
+          setTemperatureHigh(response.daily.apparent_temperature_max);
+          console.log("Forecase High Temp: " + response.daily.apparent_temperature_max);
 
-          setTemperatureLow(response.daily.apparent_temperature_max[0]);
-          console.log("Forecase Low Temp: " + response.daily.apparent_temperature_min[0]);
+          setTemperatureLow(response.daily.apparent_temperature_max);
+          console.log("Forecase Low Temp: " + response.daily.apparent_temperature_min);
 
           setChanceOfRain(
             response.hourly.precipitation_probability[0]);
-            console.log("Forecast Precip: " + response.hourly.precipitation_probability[0]);
+            console.log("Forecast Precip: " + response.hourly.precipitation_probability);
 
           setCloudCoverage(
             response.hourly.cloudcover[0]
@@ -46,7 +46,10 @@ export default function Forecast({latitude, longitude}) {
   if(showForecast==true){
   return (
   <div>
-    <ForecastTable temperatureHigh={temperatureHigh}/>
+    <div className="forecast">
+    <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
+    </div>
+    <ForecastTable temperatureHigh={temperatureHigh} temperatureLow={temperatureLow} cloudCoverage={cloudCoverage} chanceOfRain={chanceOfRain}/>
   </div>
   );} else {
     return (
@@ -61,22 +64,24 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
   const days = [0, 1, 2, 3, 4, 5, 6];
   return (
     <div>
-      {days.map((day) => (
-        <div key={day} className="forecast-row">
-          <div className="activeCity">
-            <p>Day {day + 1}</p>
-          </div>
-          <div className="iconAndTemp">
-            <WeatherIcon cloudCoverage={cloudCoverage} /> &nbsp;&nbsp;
-            <p>{temperatureHigh} &#8457;</p>
-          </div>
-          <div className="chanceOfRain">
-            <p>
-              Chance of Rain: <strong>{chanceOfRain}%</strong>
-            </p>
-          </div>
-        </div>
-      ))}
+      <div className="forecastHigh">
+      <p>High: <strong> {temperatureHigh[0]}</strong></p>
+      <p>High: <strong> {temperatureHigh[1]}</strong></p>
+      <p>High: <strong> {temperatureHigh[2]}</strong></p>
+      <p>High: <strong> {temperatureHigh[3]}</strong></p>
+      <p>High: <strong> {temperatureHigh[4]}</strong></p>
+      <p>High: <strong> {temperatureHigh[5]}</strong></p>
+      <p>High: <strong> {temperatureHigh[6]}</strong></p>  
+      </div>
+      <div className="forecastLow">
+      <p>Low: <strong> {temperatureLow[0]}</strong></p>
+      <p>Low: <strong> {temperatureLow[1]}</strong></p>
+      <p>Low: <strong> {temperatureLow[2]}</strong></p>
+      <p>Low: <strong> {temperatureLow[3]}</strong></p>
+      <p>Low: <strong> {temperatureLow[4]}</strong></p>
+      <p>Low: <strong> {temperatureLow[5]}</strong></p>
+      <p>Low: <strong> {temperatureLow[6]}</strong></p>  
+      </div>
     </div>
   );
 }

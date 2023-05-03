@@ -166,3 +166,25 @@
   outline: none;
 }
 
+.forecastHigh{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.forecastHigh p:not(:last-child) {
+  margin-right: 25px;
+}
+
+.forecastLow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.forecastLow p:not(:last-child) {
+  margin-right: 30px;
+}
+
