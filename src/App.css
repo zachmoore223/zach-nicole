@@ -195,7 +195,7 @@
   margin-bottom: -30px;
 }
 
-.daysOfTheWeek p{
-  margin-right: 45px;
+.daysOfTheWeek p:not(:last-child){
+  margin-left: 75px;
 }
 
