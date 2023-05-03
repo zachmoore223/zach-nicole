@@ -86,6 +86,7 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
         <p><strong>{daysOfWeek[daysArray[7]]}</strong></p>
         <p><strong>{daysOfWeek[daysArray[0]]}</strong></p>
       </div>
+      
       <div className="forecastHigh">
         <p>High: <strong> {temperatureHigh[0]}</strong></p>
         <p>High: <strong> {temperatureHigh[1]}</strong></p>
@@ -95,6 +96,7 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
         <p>High: <strong> {temperatureHigh[5]}</strong></p>
         <p>High: <strong> {temperatureHigh[6]}</strong></p>  
       </div>
+
       <div className="forecastLow">
         <p>Low: <strong> {temperatureLow[0]}</strong></p>
         <p>Low: <strong> {temperatureLow[1]}</strong></p>
