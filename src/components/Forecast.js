@@ -61,17 +61,30 @@ export default function Forecast({latitude, longitude}) {
 }
 
 function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOfRain}) {
-  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  const today = new Date();
+  const daysArray = [];
+  const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+  for (let i = 0; i < 7; i++) {
+    const nextDay = new Date(today);
+    nextDay.setDate(today.getDate() + i);
+
+    let day = nextDay.getDay();
+    daysArray.push(day);
+    console.log(daysArray[i]);
+  }
+
   return (
     <div>
       <div className="daysOfTheWeek">
-        <p><strong>SUN</strong></p>
-        <p><strong>MON</strong></p>
-        <p><strong>TUE</strong></p>
-        <p><strong>WED</strong></p>
-        <p><strong>THU</strong></p>
-        <p><strong>FRI</strong></p>
-        <p><strong>SAT</strong></p>
+        <p><strong>{daysOfWeek[daysArray[1]]}</strong></p>
+        <p><strong>{daysOfWeek[daysArray[2]]}</strong></p>
+        <p><strong>{daysOfWeek[daysArray[3]]}</strong></p>
+        <p><strong>{daysOfWeek[daysArray[4]]}</strong></p>
+        <p><strong>{daysOfWeek[daysArray[5]]}</strong></p>
+        <p><strong>{daysOfWeek[daysArray[6]]}</strong></p>
+        <p><strong>{daysOfWeek[daysArray[7]]}</strong></p>
+        <p><strong>{daysOfWeek[daysArray[0]]}</strong></p>
       </div>
       <div className="forecastHigh">
         <p>High: <strong> {temperatureHigh[0]}</strong></p>
