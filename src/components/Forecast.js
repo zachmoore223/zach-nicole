@@ -46,21 +46,7 @@ export default function Forecast({latitude, longitude}) {
   if(showForecast==true){
   return (
   <div>
-    <div className="forecast">
-    <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
-    </div>
-    <div>
-      <div className="activeCity">
-         <p> Day 1 </p>
-        </div>
-        <div className="iconAndTemp">
-          <WeatherIcon cloudCoverage={cloudCoverage} /> &nbsp;&nbsp;
-          <p>{temperatureHigh} &#8457;</p>
-        </div>
-        <div className="chanceOfRain">
-          <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
-        </div>
-    </div>
+    <ForecastTable temperatureHigh={temperatureHigh}/>
   </div>
   );} else {
     return (
@@ -70,3 +56,28 @@ export default function Forecast({latitude, longitude}) {
  ); }
 
 }
+
+function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOfRain}) {
+  const days = [0, 1, 2, 3, 4, 5, 6];
+  return (
+    <div>
+      {days.map((day) => (
+        <div key={day} className="forecast-row">
+          <div className="activeCity">
+            <p>Day {day + 1}</p>
+          </div>
+          <div className="iconAndTemp">
+            <WeatherIcon cloudCoverage={cloudCoverage} /> &nbsp;&nbsp;
+            <p>{temperatureHigh} &#8457;</p>
+          </div>
+          <div className="chanceOfRain">
+            <p>
+              Chance of Rain: <strong>{chanceOfRain}%</strong>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
