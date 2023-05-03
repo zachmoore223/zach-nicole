@@ -188,3 +188,14 @@
   margin-right: 30px;
 }
 
+.daysOfTheWeek{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -25px;
+}
+
+.daysOfTheWeek p:not(:last-child) {
+  margin-right: 65px;
+}
+

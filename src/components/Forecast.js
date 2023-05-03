@@ -61,26 +61,35 @@ export default function Forecast({latitude, longitude}) {
 }
 
 function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOfRain}) {
-  const days = [0, 1, 2, 3, 4, 5, 6];
+  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   return (
     <div>
+      <div className="daysOfTheWeek">
+        <p><strong>SUN</strong></p>
+        <p><strong>MON</strong></p>
+        <p><strong>TUE</strong></p>
+        <p><strong>WED</strong></p>
+        <p><strong>THU</strong></p>
+        <p><strong>FRI</strong></p>
+        <p><strong>SAT</strong></p>
+      </div>
       <div className="forecastHigh">
-      <p>High: <strong> {temperatureHigh[0]}</strong></p>
-      <p>High: <strong> {temperatureHigh[1]}</strong></p>
-      <p>High: <strong> {temperatureHigh[2]}</strong></p>
-      <p>High: <strong> {temperatureHigh[3]}</strong></p>
-      <p>High: <strong> {temperatureHigh[4]}</strong></p>
-      <p>High: <strong> {temperatureHigh[5]}</strong></p>
-      <p>High: <strong> {temperatureHigh[6]}</strong></p>  
+        <p>High: <strong> {temperatureHigh[0]}</strong></p>
+        <p>High: <strong> {temperatureHigh[1]}</strong></p>
+        <p>High: <strong> {temperatureHigh[2]}</strong></p>
+        <p>High: <strong> {temperatureHigh[3]}</strong></p>
+        <p>High: <strong> {temperatureHigh[4]}</strong></p>
+        <p>High: <strong> {temperatureHigh[5]}</strong></p>
+        <p>High: <strong> {temperatureHigh[6]}</strong></p>  
       </div>
       <div className="forecastLow">
-      <p>Low: <strong> {temperatureLow[0]}</strong></p>
-      <p>Low: <strong> {temperatureLow[1]}</strong></p>
-      <p>Low: <strong> {temperatureLow[2]}</strong></p>
-      <p>Low: <strong> {temperatureLow[3]}</strong></p>
-      <p>Low: <strong> {temperatureLow[4]}</strong></p>
-      <p>Low: <strong> {temperatureLow[5]}</strong></p>
-      <p>Low: <strong> {temperatureLow[6]}</strong></p>  
+        <p>Low: <strong> {temperatureLow[0]}</strong></p>
+        <p>Low: <strong> {temperatureLow[1]}</strong></p>
+        <p>Low: <strong> {temperatureLow[2]}</strong></p>
+        <p>Low: <strong> {temperatureLow[3]}</strong></p>
+        <p>Low: <strong> {temperatureLow[4]}</strong></p>
+        <p>Low: <strong> {temperatureLow[5]}</strong></p>
+        <p>Low: <strong> {temperatureLow[6]}</strong></p>  
       </div>
     </div>
   );
