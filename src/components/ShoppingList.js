@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { data } from '../data';
 import { ShoppingListItems } from '../shoppingListItems';
+import uuid from 'uuid';
 
 const frequentItems = ShoppingListItems;
 

@@ -178,6 +178,25 @@ table.forecastTable {
   padding: 10px;
 }
 
+.addAnyItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.groceryListHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.groceryListItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 @media only screen and (max-width: 580px) {
   .forecastTable{
     font-size: x-small;
