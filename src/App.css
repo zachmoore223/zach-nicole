@@ -161,7 +161,21 @@
 }
 
 .forecastTable{
+  font-size: small;
   margin: 0 auto; /* Set left and right margin to auto */
+}
+
+table.forecastTable {
+  border-collapse: collapse;
+}
+
+.forecastTable td, .forecastTable th {
+  padding: 5px;
+  line-height: 0.2em;
+}
+
+.forecastTable td {
+  padding: 10px;
 }
 
 

@@ -30,13 +30,13 @@ export default function Forecast({latitude, longitude}) {
           console.log("Forecase Low Temp: " + response.daily.apparent_temperature_min);
 
           setChanceOfRain(
-            response.hourly.precipitation_probability);
-            console.log("Forecast Precip: " + response.hourly.precipitation_probability);
+            response.daily.precipitation_probability_max);
+            console.log("Forecast Precip: " + response.daily.precipitation_probability_max);
 
           setCloudCoverage(
-            response.hourly.cloudcover
+            response.hourly.cloudcover_mid
           );
-          console.log("Forecast: " + response.hourly.cloudcover);
+          console.log("Forecast: " + response.hourly.cloudcover_mid);
 
         });
     }
@@ -49,6 +49,7 @@ export default function Forecast({latitude, longitude}) {
     <div className="forecastSection">
     <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
     </div>
+    <br /><br />
     <div>
     <ForecastTable temperatureHigh={temperatureHigh} temperatureLow={temperatureLow} cloudCoverage={cloudCoverage} chanceOfRain={chanceOfRain}/>
     </div>
@@ -90,27 +91,51 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
             <th><strong>{daysOfWeek[daysArray[0]]}</strong></th>
           </tr>
         </thead>
+        
+        <tbody>
+
           {/* HIGH TEMPERATURES */}
-        <tbody> 
           <tr>
-            <td>High: <strong> {temperatureHigh[0]}</strong></td>
             <td>High: <strong> {temperatureHigh[1]}</strong></td>
             <td>High: <strong> {temperatureHigh[2]}</strong></td>
             <td>High: <strong> {temperatureHigh[3]}</strong></td>
             <td>High: <strong> {temperatureHigh[4]}</strong></td>
             <td>High: <strong> {temperatureHigh[5]}</strong></td>
             <td>High: <strong> {temperatureHigh[6]}</strong></td>
+            <td>High: <strong> {temperatureHigh[0]}</strong></td>
+          </tr>
+
+          {/* WEATHER ICON BASED ON CLOUD COVERAGE */}
+          <tr>
+            <td><WeatherIcon cloudCoverage={cloudCoverage[1]}/></td>
+            <td><WeatherIcon cloudCoverage={cloudCoverage[2]}/></td>
+            <td><WeatherIcon cloudCoverage={cloudCoverage[3]}/></td>
+            <td><WeatherIcon cloudCoverage={cloudCoverage[4]}/></td>
+            <td><WeatherIcon cloudCoverage={cloudCoverage[5]}/></td>
+            <td><WeatherIcon cloudCoverage={cloudCoverage[6]}/></td>
+            <td><WeatherIcon cloudCoverage={cloudCoverage[0]}/></td>
           </tr>
 
           {/* LOW TEMPERATURES */}
           <tr>
-            <td>Low: <strong> {temperatureLow[0]}</strong></td>
             <td>Low: <strong> {temperatureLow[1]}</strong></td>
             <td>Low: <strong> {temperatureLow[2]}</strong></td>
             <td>Low: <strong> {temperatureLow[3]}</strong></td>
             <td>Low: <strong> {temperatureLow[4]}</strong></td>
             <td>Low: <strong> {temperatureLow[5]}</strong></td>
             <td>Low: <strong> {temperatureLow[6]}</strong></td>
+            <td>Low: <strong> {temperatureLow[0]}</strong></td>
+          </tr>
+
+          {/* CHANCE OF RAIN */}
+          <tr className="forecastRain">
+            <td>Rain: <strong> {chanceOfRain[1]}%</strong></td>
+            <td>Rain: <strong> {chanceOfRain[2]}%</strong></td>
+            <td>Rain: <strong> {chanceOfRain[3]}%</strong></td>
+            <td>Rain: <strong> {chanceOfRain[4]}%</strong></td>
+            <td>Rain: <strong> {chanceOfRain[5]}%</strong></td>
+            <td>Rain: <strong> {chanceOfRain[6]}%</strong></td>
+            <td>Rain: <strong> {chanceOfRain[0]}%</strong></td>
           </tr>
         </tbody> 
       </table>
