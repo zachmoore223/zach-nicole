@@ -26,7 +26,7 @@ export default function Forecast({latitude, longitude}) {
           setTemperatureHigh(response.daily.apparent_temperature_max);
           console.log("Forecase High Temp: " + response.daily.apparent_temperature_max);
 
-          setTemperatureLow(response.daily.apparent_temperature_max);
+          setTemperatureLow(response.daily.apparent_temperature_min);
           console.log("Forecase Low Temp: " + response.daily.apparent_temperature_min);
 
           setChanceOfRain(
