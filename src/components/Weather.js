@@ -98,11 +98,9 @@ export default function Weather() {
         </button>
 
       </div>
-
       <br /> <br />
 
-      /* CURRENT CITY WEATHER DISPLAY */
-      
+      {/* CURRENT CITY WEATHER DISPLAY */}
       <div className="activeCity">
         <p> {activeCity} &nbsp;&nbsp;&nbsp; </p> <Time />
       </div>

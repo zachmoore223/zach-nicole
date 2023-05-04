@@ -46,20 +46,22 @@ export default function Forecast({latitude, longitude}) {
   if(showForecast==true){
   return (
   <div>
-    <div className="forecast">
+    <div className="forecastSection">
     <button className="forecastButton" onClick={()=> {setShowForecast(false)}}>Hide Forecast</button>
     </div>
+    <div>
     <ForecastTable temperatureHigh={temperatureHigh} temperatureLow={temperatureLow} cloudCoverage={cloudCoverage} chanceOfRain={chanceOfRain}/>
+    </div>
   </div>
   );} else {
     return (
-    <div className="forecast">
+    <div className="forecastSection">
     <button className="forecastButton" onClick={()=> {setShowForecast(true)}}>Show Forecast</button>
     </div>
  ); }
 
 }
-
+/* Takes current day and makes an array call daysOfWeek with numbers 0-6 (o being Sunday) */
 function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOfRain}) {
   const today = new Date();
   const daysArray = [];
@@ -75,8 +77,8 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
   }
 
   return (
-    <div>
-        <table>
+        <table className="forecastTable">
+        {/* HEADERS FOR EACH DAY OF THE WEEK */}
           <tr>
             <th><strong>{daysOfWeek[daysArray[1]]}</strong></th>
             <th><strong>{daysOfWeek[daysArray[2]]}</strong></th>
@@ -84,9 +86,10 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
             <th><strong>{daysOfWeek[daysArray[4]]}</strong></th>
             <th><strong>{daysOfWeek[daysArray[5]]}</strong></th>
             <th><strong>{daysOfWeek[daysArray[6]]}</strong></th>
-            <th><strong>{daysOfWeek[daysArray[7]]}</strong></th>
             <th><strong>{daysOfWeek[daysArray[0]]}</strong></th>
           </tr>
+
+          {/* HIGH TEMPERATURES */}
           <tr>
             <td>High: <strong> {temperatureHigh[0]}</strong></td>
             <td>High: <strong> {temperatureHigh[1]}</strong></td>
@@ -95,8 +98,9 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
             <td>High: <strong> {temperatureHigh[4]}</strong></td>
             <td>High: <strong> {temperatureHigh[5]}</strong></td>
             <td>High: <strong> {temperatureHigh[6]}</strong></td>
-            <td>High: <strong> {temperatureHigh[7]}</strong></td>
           </tr>
+
+          {/* LOW TEMPERATURES */}
           <tr>
             <td>Low: <strong> {temperatureLow[0]}</strong></td>
             <td>Low: <strong> {temperatureLow[1]}</strong></td>
@@ -105,11 +109,9 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
             <td>Low: <strong> {temperatureLow[4]}</strong></td>
             <td>Low: <strong> {temperatureLow[5]}</strong></td>
             <td>Low: <strong> {temperatureLow[6]}</strong></td>
-            <td>Low: <strong> {temperatureLow[7]}</strong></td>
           </tr>
 
       </table>
-    </div>
   );
 }
 
