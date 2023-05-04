@@ -109,8 +109,7 @@ export default function Weather() {
       <div className="chanceOfRain">
         <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
       </div>
-
-          <Forecast latitude={latitude} longitude={longitude} />
+          <Forecast activeCity={activeCity} latitude={latitude} longitude={longitude} />
     </div>
 
   );

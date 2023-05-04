@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon.js";
 
-export default function Forecast({latitude, longitude}) {
-  const [activeCity, setActiveCity] = useState("Columbus");
+export default function Forecast({activeCity, latitude, longitude}) {
   const [temperatureHigh, setTemperatureHigh] = useState("");
   const [temperatureLow, setTemperatureLow] = useState("");
   const [chanceOfRain, setChanceOfRain] = useState("");
@@ -36,7 +35,7 @@ export default function Forecast({latitude, longitude}) {
           setCloudCoverage(
             response.hourly.cloudcover_mid
           );
-          console.log("Forecast: " + response.hourly.cloudcover_mid);
+          console.log("Forecast Cloud Cover Array: " + response.hourly.cloudcover_mid);
 
         });
     }
