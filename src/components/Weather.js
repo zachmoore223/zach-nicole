@@ -12,14 +12,11 @@ export default function Weather() {
   const [cloudCoverage, setCloudCoverage] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
   const currentHour = new Date().getHours();
-  const currentMinute = new Date().getMinutes();
-  //displays the minutes in the day with two digits instead of 1
-  const currentMinutesTwoDigits = new Date().getMinutes().toString().padStart(2, '0');
-  const hour12 = currentHour > 12 ? currentHour - 12 : currentHour;
 
-  //API goes by every 7 minutes so need to get the current array index by divided current minutes in the day by 7
-  const endOfArray = Math.trunc((currentHour * 60 + currentMinute) / 7);
-  console.log(endOfArray);
+  //Logs for testing
+  console.log("Current Hour: " + currentHour);
+
+  //Ues effect to set weather variables
   useEffect(() => {
     function changeCity() {
       fetch(
@@ -32,18 +29,19 @@ export default function Weather() {
         .then((res) => res.json())
         .then((response) => {
           console.log(response);
+          
 
           setTemperature(response.current_weather.temperature);
           console.log("Temp: " + response.current_weather.temperature);
 
           setChanceOfRain(
-            response.hourly.precipitation_probability[endOfArray]);
-            console.log("Chance of Rain: " + response.hourly.precipitation_probability[endOfArray]);
+            response.hourly.precipitation_probability[currentHour]);
+            console.log("Chance of Rain: " + response.hourly.precipitation_probability[currentHour]);
 
           setCloudCoverage(
-            response.hourly.cloudcover[endOfArray]
+            response.hourly.cloudcover[currentHour]
           );
-          console.log("Cloud Coverage: " + response.hourly.cloudcover[endOfArray]);
+          console.log("Cloud Coverage: " + response.hourly.cloudcover[currentHour]);
 
           setWindSpeed(
             response.current_weather.windspeed
@@ -56,7 +54,6 @@ export default function Weather() {
 
 
   return (
-    //WEATHER
     <div>
       <div className="cityButtons">
         <button
@@ -99,8 +96,6 @@ export default function Weather() {
 
       </div>
       <br /> <br />
-
-      {/* CURRENT CITY WEATHER DISPLAY */}
       <div className="activeCity">
         <p> {activeCity} &nbsp;&nbsp;&nbsp; </p> <Time />
       </div>
@@ -114,6 +109,7 @@ export default function Weather() {
       <div className="chanceOfRain">
         <p>Chance of Rain:<strong> {chanceOfRain} %</strong></p>
       </div>
+
           <Forecast latitude={latitude} longitude={longitude} />
     </div>
 

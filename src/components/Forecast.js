@@ -30,13 +30,13 @@ export default function Forecast({latitude, longitude}) {
           console.log("Forecase Low Temp: " + response.daily.apparent_temperature_min);
 
           setChanceOfRain(
-            response.hourly.precipitation_probability[0]);
+            response.hourly.precipitation_probability);
             console.log("Forecast Precip: " + response.hourly.precipitation_probability);
 
           setCloudCoverage(
-            response.hourly.cloudcover[0]
+            response.hourly.cloudcover
           );
-          console.log("Forecast: " + response.hourly.cloudcover[0]);
+          console.log("Forecast: " + response.hourly.cloudcover);
 
         });
     }
@@ -73,12 +73,13 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
 
     let day = nextDay.getDay();
     daysArray.push(day);
-    console.log(daysArray[i]);
+    console.log("Day Array:" + daysArray[i]);
   }
 
   return (
         <table className="forecastTable">
         {/* HEADERS FOR EACH DAY OF THE WEEK */}
+        <thead>
           <tr>
             <th><strong>{daysOfWeek[daysArray[1]]}</strong></th>
             <th><strong>{daysOfWeek[daysArray[2]]}</strong></th>
@@ -88,8 +89,9 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
             <th><strong>{daysOfWeek[daysArray[6]]}</strong></th>
             <th><strong>{daysOfWeek[daysArray[0]]}</strong></th>
           </tr>
-
+        </thead>
           {/* HIGH TEMPERATURES */}
+        <tbody> 
           <tr>
             <td>High: <strong> {temperatureHigh[0]}</strong></td>
             <td>High: <strong> {temperatureHigh[1]}</strong></td>
@@ -110,7 +112,7 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
             <td>Low: <strong> {temperatureLow[5]}</strong></td>
             <td>Low: <strong> {temperatureLow[6]}</strong></td>
           </tr>
-
+        </tbody> 
       </table>
   );
 }
