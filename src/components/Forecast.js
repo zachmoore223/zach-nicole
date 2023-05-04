@@ -76,36 +76,39 @@ function ForecastTable({temperatureHigh, temperatureLow, cloudCoverage, chanceOf
 
   return (
     <div>
-      <div className="daysOfTheWeek">
-        <p><strong>{daysOfWeek[daysArray[1]]}</strong></p>
-        <p><strong>{daysOfWeek[daysArray[2]]}</strong></p>
-        <p><strong>{daysOfWeek[daysArray[3]]}</strong></p>
-        <p><strong>{daysOfWeek[daysArray[4]]}</strong></p>
-        <p><strong>{daysOfWeek[daysArray[5]]}</strong></p>
-        <p><strong>{daysOfWeek[daysArray[6]]}</strong></p>
-        <p><strong>{daysOfWeek[daysArray[7]]}</strong></p>
-        <p><strong>{daysOfWeek[daysArray[0]]}</strong></p>
-      </div>
-      
-      <div className="forecastHigh">
-        <p>High: <strong> {temperatureHigh[0]}</strong></p>
-        <p>High: <strong> {temperatureHigh[1]}</strong></p>
-        <p>High: <strong> {temperatureHigh[2]}</strong></p>
-        <p>High: <strong> {temperatureHigh[3]}</strong></p>
-        <p>High: <strong> {temperatureHigh[4]}</strong></p>
-        <p>High: <strong> {temperatureHigh[5]}</strong></p>
-        <p>High: <strong> {temperatureHigh[6]}</strong></p>  
-      </div>
+        <table>
+          <tr>
+            <th><strong>{daysOfWeek[daysArray[1]]}</strong></th>
+            <th><strong>{daysOfWeek[daysArray[2]]}</strong></th>
+            <th><strong>{daysOfWeek[daysArray[3]]}</strong></th>
+            <th><strong>{daysOfWeek[daysArray[4]]}</strong></th>
+            <th><strong>{daysOfWeek[daysArray[5]]}</strong></th>
+            <th><strong>{daysOfWeek[daysArray[6]]}</strong></th>
+            <th><strong>{daysOfWeek[daysArray[7]]}</strong></th>
+            <th><strong>{daysOfWeek[daysArray[0]]}</strong></th>
+          </tr>
+          <tr>
+            <td>High: <strong> {temperatureHigh[0]}</strong></td>
+            <td>High: <strong> {temperatureHigh[1]}</strong></td>
+            <td>High: <strong> {temperatureHigh[2]}</strong></td>
+            <td>High: <strong> {temperatureHigh[3]}</strong></td>
+            <td>High: <strong> {temperatureHigh[4]}</strong></td>
+            <td>High: <strong> {temperatureHigh[5]}</strong></td>
+            <td>High: <strong> {temperatureHigh[6]}</strong></td>
+            <td>High: <strong> {temperatureHigh[7]}</strong></td>
+          </tr>
+          <tr>
+            <td>Low: <strong> {temperatureLow[0]}</strong></td>
+            <td>Low: <strong> {temperatureLow[1]}</strong></td>
+            <td>Low: <strong> {temperatureLow[2]}</strong></td>
+            <td>Low: <strong> {temperatureLow[3]}</strong></td>
+            <td>Low: <strong> {temperatureLow[4]}</strong></td>
+            <td>Low: <strong> {temperatureLow[5]}</strong></td>
+            <td>Low: <strong> {temperatureLow[6]}</strong></td>
+            <td>Low: <strong> {temperatureLow[7]}</strong></td>
+          </tr>
 
-      <div className="forecastLow">
-        <p>Low: <strong> {temperatureLow[0]}</strong></p>
-        <p>Low: <strong> {temperatureLow[1]}</strong></p>
-        <p>Low: <strong> {temperatureLow[2]}</strong></p>
-        <p>Low: <strong> {temperatureLow[3]}</strong></p>
-        <p>Low: <strong> {temperatureLow[4]}</strong></p>
-        <p>Low: <strong> {temperatureLow[5]}</strong></p>
-        <p>Low: <strong> {temperatureLow[6]}</strong></p>  
-      </div>
+      </table>
     </div>
   );
 }

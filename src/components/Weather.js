@@ -96,8 +96,13 @@ export default function Weather() {
         >
           Tampa
         </button>
+
       </div>
+
       <br /> <br />
+
+      /* CURRENT CITY WEATHER DISPLAY */
+      
       <div className="activeCity">
         <p> {activeCity} &nbsp;&nbsp;&nbsp; </p> <Time />
       </div>
@@ -113,7 +118,6 @@ export default function Weather() {
       </div>
           <Forecast latitude={latitude} longitude={longitude} />
     </div>
-
 
   );
 }
