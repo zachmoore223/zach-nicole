@@ -208,6 +208,10 @@ table.forecastTable {
   list-style: none;
 }
 
+.listOfItems {
+  list-style: none;
+}
+
 
 @media only screen and (max-width: 580px) {
   .forecastTable{

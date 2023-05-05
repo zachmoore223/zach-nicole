@@ -52,40 +52,46 @@ function Shopping() {
     setItems([...items, newItem]);
   };
 
+  const sortedItems = [...items].sort((a, b) => {
+    if (a.type < b.type) return -1;
+    if (a.type > b.type) return 1;
+    return 0;
+  });
 
   return (
     <div>
       <h1 className="groceryListHeader">Shopping List</h1>
       <div className="shoppingList">
-     <ul>
-        {items.map(item => (
-          <li key={item.id}>
-            {item.name} - ${item.price} - {item.type} 
-            &nbsp; &nbsp; 
-            <button className="xButton" onClick={() => removeItem(item.id)}> X </button>
-          </li>
-        ))}
-      </ul>
+        <ul className="listOfItems">
+          {sortedItems.map(item => (
+            
+            <li key={item.id}>
+                <button className="xButton" onClick={() => removeItem(item.id)}> X </button>
+                &nbsp; &nbsp; 
+                {item.name} - ${item.price} - {item.type} 
+            </li>
+          ))}
+        </ul>
       </div>
 
       <h2 className ="frequentlyBoughtHeader">Add Frequently Bought Item</h2>
       <div className="frequently-bought">
-      
-      <label>
-        Item:
-        <select value={selectedFrequentItem} onChange={handleSelectFrequentItem}>
-          <option value="">Select an item</option>
-          {frequentItems.map((item, index) => (
-            <option key={index} value={item.name}>
-              {item.name} - ${item.price.toFixed(2)}
-            </option>
-          ))}
-        </select>
-      </label>
+        <label>
+          Item:
+          <select value={selectedFrequentItem} onChange={handleSelectFrequentItem}>
+            <option value="">Select an item</option>
+            {frequentItems.map((item, index) => (
+              <option key={index} value={item.name}>
+                {item.name} - ${item.price.toFixed(2)}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
 
       <br/>
-      <h2 className ="addAnyHeader">Add Any Item</h2>
+      <h2 className ="addAnyHeader">Add
+ Any Item</h2>
         <AddItemForm addItem={addItem} />
     </div>
   );
