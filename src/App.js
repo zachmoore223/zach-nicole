@@ -11,7 +11,6 @@ function App() {
       </header>
       <Weather />
       <Shopping />
-      <ShoppingList />
     </div>
           
 

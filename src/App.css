@@ -195,6 +195,18 @@ table.forecastTable {
   justify-content: center;
   align-items: center;
 }
+.addItemButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoppingList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
 
 
 @media only screen and (max-width: 580px) {

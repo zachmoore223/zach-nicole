@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { ShoppingListItems } from '../shoppingListItems';
 import { v4 as uuidv4 } from 'uuid';
 
 function Shopping() {
   const [items, setItems] = useState([]);
+  const frequentItems = ShoppingListItems;
+  const [newItemName, setNewItemName] = useState('');
+  const [newItemPrice, setNewItemPrice] = useState('');
+  const [selectedFrequentItem, setSelectedFrequentItem] = useState('');
 
   useEffect(() => {
     // Get the shopping list data from local storage
@@ -31,18 +36,52 @@ function Shopping() {
     setItems(updatedItems);
   }
 
+  const handleSelectFrequentItem = (event) => {
+    const selectedName = event.target.value;
+    const selectedPrice = frequentItems.find((item) => item.name === selectedName)
+      .price;
+    const newItem = {
+      name: selectedName,
+      price: selectedPrice,
+    };
+    setItems([...items, newItem]);
+  };
+
+
   return (
-    <div className="groceryList">
+    <div>
       <h1 className="groceryListHeader">Shopping List</h1>
-      <ul className="groceryListItems">
+      <div className="shoppingList">
+     <ul>
         {items.map(item => (
           <li key={item.id}>
-            {item.name} - ${item.price} - {item.type}
-            <button onClick={() => removeItem(item.id)}>Remove</button>
+            {item.name} - ${item.price} - {item.type} 
+            &nbsp; &nbsp; 
+            <button className="xButton" onClick={() => removeItem(item.id)}> X </button>
           </li>
         ))}
       </ul>
-      <AddItemForm addItem={addItem} />
+      </div>
+
+      <h2 className ="frequentlyBoughtHeader">Add Frequently Bought Item</h2>
+      <div className="frequently-bought">
+      
+      <label>
+        Item:
+        <select value={selectedFrequentItem} onChange={handleSelectFrequentItem}>
+          <option value="">Select an item</option>
+          {frequentItems.map((item, index) => (
+            <option key={index} value={item.name}>
+              {item.name} - ${item.price.toFixed(2)}
+            </option>
+          ))}
+        </select>
+      </label>
+      </div>
+
+      <br/>
+      <h2 className ="addAnyHeader">Add Any Item</h2>
+        <AddItemForm addItem={addItem} />
     </div>
   );
 }
@@ -68,8 +107,8 @@ function AddItemForm({ addItem }) {
       <input type="text" placeholder="Price" value={price} onChange={e => setPrice(e.target.value)} />
       <br />
       <input type="text" placeholder="Type" value={type} onChange={e => setType(e.target.value)} />
-      <br />
-      <button type="submit">Add Item</button>
+      <br /><br />
+      <button className="addButton" type="submit">Add Item</button>
     </form>
     </div>
   );
