@@ -209,7 +209,12 @@ table.forecastTable {
 }
 
 .listOfItems {
+  margin-bottom: 5px;
   list-style: none;
+}
+
+.listOfItems li{
+  margin-bottom: 10px;
 }
 
 
