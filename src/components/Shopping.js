@@ -44,6 +44,7 @@ function Shopping() {
     const selectedType = frequentItems.find((item) => item.name === selectedName)
       .type;
     const newItem = {
+      id: uuidv4(),
       name: selectedName,
       price: selectedPrice,
       type: selectedType,
