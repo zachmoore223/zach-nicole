@@ -7,6 +7,7 @@ function Shopping() {
   const frequentItems = ShoppingListItems;
   const [newItemName, setNewItemName] = useState('');
   const [newItemPrice, setNewItemPrice] = useState('');
+  const [newItemType, setNewItemType] = useState('');
   const [selectedFrequentItem, setSelectedFrequentItem] = useState('');
 
   useEffect(() => {
@@ -40,9 +41,12 @@ function Shopping() {
     const selectedName = event.target.value;
     const selectedPrice = frequentItems.find((item) => item.name === selectedName)
       .price;
+    const selectedType = frequentItems.find((item) => item.name === selectedName)
+      .type;
     const newItem = {
       name: selectedName,
       price: selectedPrice,
+      type: selectedType,
     };
     setItems([...items, newItem]);
   };
