@@ -119,7 +119,9 @@ function AddItemForm({ addItem }) {
       <br />
       <input type="text" placeholder="Type" value={type} onChange={e => setType(e.target.value)} />
       <br /><br />
+      <div className='addAnyItem'>
       <button className="addButton" type="submit">Add Item</button>
+      </div>
     </form>
     </div>
   );
